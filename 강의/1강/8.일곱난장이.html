@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(arr) {
+        sum = arr.reduce((acc, cur) => acc + cur);
+
+        for (let i = 0; i < arr.length; i++) {
+          for (let j = 1; j < arr.length; j++) {
+            console.log(arr[i], arr[j]);
+            if (sum - (arr[i] + arr[j]) === 100) {
+              console.log("결과", arr[i], arr[j]);
+              arr.splice(j, 1);
+              arr.splice(i, 1);
+              return arr;
+            }
+          }
+        }
+      }
+
+      let arr = [22, 7, 21, 19, 10, 15, 25, 8, 13];
+      console.log(solution(arr));
+    </script>
+  </body>
+</html>

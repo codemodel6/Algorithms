@@ -1,0 +1,73 @@
+1. forEach - return 값이 없는 배열 순회
+
+const arr = [1,2,3,4]
+let forEachTest = arr.forEach((it,idx)=>{
+    console.log(it,idx); // 1 0 | 2 1 | 3 2 | 4 3
+    return it
+})
+
+console.log(forEachTest) // undefined
+
+2. map - return 값이 새로운 배열인 배열 순회
+
+const arr = [1, 2, 3, 4]
+let mapTest = arr.map((it,idx)=>{
+    console.log(it,idx); // 1 0 | 2 1 | 3 2 | 4 3
+    return it
+})
+
+console.log(mapTest) // [1,2,3,4]
+
+특징으로는 결과값은 원본 배열과 길이가 무조건 맞아야 한다 만약 return문에 
+if(it%2 === 0) {
+    return it
+}
+이러한 조건을 준다면 결과값은
+[undefined, 2, undefined, 4]
+가 나온다.
+
+3. filter - return 값이 조건에 맞는 새로운 배열인 배열 순회
+
+const arr = [1, 2, 3, 4]
+let filterTest = arr.filter((it,idx)=>{
+    console.log(it,idx); // 1 0 | 2 1 | 3 2 | 4 3
+    return it % 2 === 0
+})
+
+console.log(filterTest) // [1,2,3,4]
+
+특징으로는 결과값은 원본 배열과 길이가 맞지 않는 배열이 나올 수 있다.
+
+4. reduce - 첫번째 인자로 반복하며 결과값은 배열이 아닌 값
+
+reduce의 acc는 첫번째 순회일때는 배열의 첫번째 값 이며 (3번째 인자로 설정 가능)
+두번째 순회때부터는 이전 반복문의 return되는 값 이다.
+
+const arr = [1, 2, 3, 4]
+let reduceTest = arr.reduce((acc,cur)=>{
+    console.log(acc,cur); // 1 2 | 3 3 | 6 4
+    return acc+cur
+})
+
+console.log(reduceTest) // 10
+
+const arr = ["a", "a", "b", "c"]
+let reduceTest = arr.reduce((acc,cur)=>{
+    console.log(acc,cur); // a a | a b | b 4
+    return acc
+})
+
+console.log(reduceTest) // a
+
+3번째 인자값으로 시작하는 값을 설정이 가능하다 이 경우 cur은 0부터 시작한다
+
+const arr = ["q", "w", "e", "r"]
+let reduceTest = arr.reduce((acc,cur)=>{
+    console.log(acc,cur); // x q | xq w | xqw e | xqwe r
+    return acc + cur
+}, "x")
+
+console.log(reduceTest) // xqwer
+
+
+4번째 인자값으로 원본 배열 불러오기 가능
