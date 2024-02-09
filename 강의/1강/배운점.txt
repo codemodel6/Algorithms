@@ -71,3 +71,29 @@ console.log(reduceTest) // xqwer
 
 
 4번째 인자값으로 원본 배열 불러오기 가능
+
+5. substr(start,length)
+파라미터로 입력받은 start 인덱스부터 length의 길이 만큼 string을 잘라서 반환하는 함수이다.
+
+let str = "Hello"
+let a = str.substr(0,1)             // "H"
+let b = str.substr(1,4)             // "ello"
+let c = str.substr(str.length-1,1)  // "o"
+
+6. substring(start, end)
+파라미터로 입력받은 start 인덱스부터 end - 1 인덱스 만큼 string을 잘라서 반환하는 함수이다.
+let str = "Hello"
+let a = str.substring(0,1)          // "H"
+let b = str.substring(1,4)          // "ell"
+
+특징 :  음수를 0으로 처리한다
+        end 인덱스보다 start 인덱스가 클 경우 
+        -> start 와 end 인덱스를 바꿔서 처리한다
+
+7. slice(start, end)
+substring과 기능은 동일 하지만 음수일때와 시작 인덱스가 다를 때 기능이 다르다
+let str = "Hello"
+특징 :  음수일 경우 뒤로 간다.
+        let a = str.slice(0,-2)          // "Hel"
+        end 인덱스보다 start 인덱스가 클 경우
+        -> 비어있는 값인 "" 을 return 한다
