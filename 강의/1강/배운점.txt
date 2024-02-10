@@ -97,3 +97,13 @@ let str = "Hello"
         let a = str.slice(0,-2)          // "Hel"
         end 인덱스보다 start 인덱스가 클 경우
         -> 비어있는 값인 "" 을 return 한다
+
+8. indexOf(searchValue,position)
+문자열에서 특정 문자열(searchValue)를 찾고, 검색된 문자열이 첫번째로 나타나는 위치 index를 리턴한다
+position은 option으로써 searchValue를 찾을 위치를 정할 수 있다
+
+str = "abcdab"
+str.indexOf("ab")       // 0
+str.indexOf("bc")       // 1
+str.indexOf("ab", 2)    // 4
+str.indexOf("e")        // -1
