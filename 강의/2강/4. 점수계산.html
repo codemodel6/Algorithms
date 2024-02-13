@@ -5,11 +5,20 @@
   </head>
   <body>
     <script>
-      function solution(arr) {}
-
+      function solution(arr) {
+        let count = 0;
+        arr.reduce((acc, cur) => {
+          count += acc;
+          if (cur === 1) {
+            return acc + cur;
+          } else {
+            return cur;
+          }
+        });
+        return count;
+      }
       let arr = [1, 0, 1, 1, 1, 0, 0, 1, 1, 0];
       console.log(solution(arr));
     </script>
   </body>
-  a
 </html>
