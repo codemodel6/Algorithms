@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(arr) {
+        let count = 0;
+        for (let i = 0; i < arr.length; i++) {
+          for (let j = 0; j < arr[i].length; j++) {
+            let up = Number.MIN_SAFE_INTEGER;
+            down = Number.MIN_SAFE_INTEGER;
+            left = Number.MIN_SAFE_INTEGER;
+            right = Number.MIN_SAFE_INTEGER;
+
+            if (arr[i - 1] !== undefined) up = arr[i - 1][j];
+            if (arr[i + 1] !== undefined) down = arr[i + 1][j];
+            if (arr[i][j - 1] !== undefined) left = arr[i][j - 1];
+            if (arr[i][j + 1] !== undefined) right = arr[i][j + 1];
+
+            console.log(up, down, left, right);
+
+            let max = Math.max(up, down, left, right);
+            if (arr[i][j] > max) {
+              count++;
+            }
+          }
+        }
+
+        return count;
+      }
+
+      let arr = [
+        [5, 3, 7, 2, 3],
+        [3, 7, 1, 6, 1],
+        [7, 2, 5, 3, 4],
+        [4, 3, 6, 4, 1],
+        [8, 7, 3, 5, 2],
+      ];
+      console.log(solution(arr));
+    </script>
+  </body>
+</html>
