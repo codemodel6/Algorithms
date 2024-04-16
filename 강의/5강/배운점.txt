@@ -1,0 +1,25 @@
+1. Hash - 유일한 값(반복되지 않는 값)을 저장하기 위한 자료구조. (key, value) 쌍 형태로 저장한다.
+          특정한 값을 아주 빠르게 찾는다는 특징
+
+해시맵 만드는법
+let sH = new Map()
+
+값 설정
+sH.set("a",1)
+
+값 불러오기
+sH.get("a")     // 1
+
+값 있는지 확인
+sH.has(a)       // true
+
+값 삭제
+sH.delete(a)
+
+길이 확인
+sH.size
+
+hash 탐색 for-of 문
+for(let [key, val] of sH) {
+    console.log(key, val)
+}

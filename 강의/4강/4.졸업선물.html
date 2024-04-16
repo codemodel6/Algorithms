@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(m, product) {
+        let answer = 0;
+        let num = 0;
+        let max = Number.MIN_SAFE_INTEGER;
+        let sumArr = [];
+        for (let i = 0; i < product.length; i++) {
+          if (product[i][0] > max) {
+            num = i;
+            max = product[i][0];
+          }
+        }
+
+        product[num][0] = product[num][0] / 2;
+
+        for (let i = 0; i < product.length; i++) {
+          let sum = product[i][0] + product[i][1];
+          sumArr.push(sum);
+        }
+        sumArr.sort((a, b) => a - b);
+        console.log("배열 : ", sumArr);
+
+        let finalSum = 0;
+        for (let i = 0; i < sumArr.length; i++) {
+          finalSum = finalSum + sumArr[i];
+          console.log("합계 : ", finalSum);
+          if (m >= finalSum) {
+            answer++;
+            console.log("엔서 : ", answer);
+          } else return answer;
+        }
+      }
+
+      let arr = [
+        [6, 6],
+        [2, 2],
+        [4, 3],
+        [4, 5],
+        [10, 3],
+      ];
+      console.log(solution(28, arr));
+    </script>
+  </body>
+</html>
